@@ -20,7 +20,7 @@ class GraphicManagerTest {
 
     @Test
     fun testGraphicMangerAddViews() {
-        val id = R.layout.view_photo_editor_text
+        val id = R.layout.v_view_photo_editor_text
         val childId = R.id.frmBorder
         val photoEditorView = PhotoEditorView(mContext)
         val graphicManager = GraphicManager(photoEditorView, PhotoEditorViewState())

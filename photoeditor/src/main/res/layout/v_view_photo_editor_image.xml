@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgPhotoEditorClose"
         android:layout_width="25dp"
         android:layout_height="25dp"
@@ -18,7 +18,7 @@
         android:layout_margin="8dp"
         android:background="@drawable/rounded_border_tv">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgPhotoEditorImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

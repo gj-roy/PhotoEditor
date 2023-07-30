@@ -18,12 +18,12 @@
             android:layout_margin="4dp"
             android:textColor="#000000"
             android:textSize="18sp"
-            tools:text="Burhanuddin"
+            tools:text="tvPhotoEditorText"
             tools:textColor="@android:color/black" />
 
     </FrameLayout>
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgPhotoEditorClose"
         android:layout_width="15dp"
         android:layout_height="15dp"

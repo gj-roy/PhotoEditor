@@ -20,7 +20,7 @@ internal class Text(
     context = mPhotoEditorView.context,
     graphicManager = mGraphicManager,
     viewType = ViewType.TEXT,
-    layoutId = R.layout.view_photo_editor_text
+    layoutId = R.layout.v_view_photo_editor_text
 ) {
 
     private var mTextView: TextView? = null
