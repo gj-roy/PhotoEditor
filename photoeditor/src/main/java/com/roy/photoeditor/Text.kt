@@ -5,11 +5,6 @@ import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 
-/**
- * Created by Burhanuddin Rashid on 14/05/21.
- *
- * @author <https:></https:>//github.com/burhanrashid52>
- */
 internal class Text(
     private val mPhotoEditorView: PhotoEditorView,
     private val mMultiTouchListener: MultiTouchListener,

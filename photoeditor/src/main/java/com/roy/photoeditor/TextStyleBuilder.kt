@@ -6,17 +6,8 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.widget.TextView
 
-/**
- *
- *
- * This class is used to wrap the styles to apply on the TextView on [PhotoEditor.addText] and [PhotoEditor.editText]
- *
- *
- * @author [Christian Caballero](https://github.com/Sulfkain)
- * @since 14/05/2019
- */
 open class TextStyleBuilder {
-    val values = mutableMapOf<TextStyle, Any>()
+    private val values = mutableMapOf<TextStyle, Any>()
 
     /**
      * Set this textSize style
@@ -123,18 +114,22 @@ open class TextStyleBuilder {
                     val size = value as Float
                     applyTextSize(textView, size)
                 }
+
                 TextStyle.COLOR -> {
                     val color = value as Int
                     applyTextColor(textView, color)
                 }
+
                 TextStyle.FONT_FAMILY -> {
                     val typeface = value as Typeface
                     applyFontFamily(textView, typeface)
                 }
+
                 TextStyle.GRAVITY -> {
                     val gravity = value as Int
                     applyGravity(textView, gravity)
                 }
+
                 TextStyle.BACKGROUND -> {
                     if (value is Drawable) {
                         applyBackgroundDrawable(textView, value)
@@ -142,19 +137,23 @@ open class TextStyleBuilder {
                         applyBackgroundColor(textView, value)
                     }
                 }
+
                 TextStyle.TEXT_APPEARANCE -> {
                     if (value is Int) {
                         applyTextAppearance(textView, value)
                     }
                 }
+
                 TextStyle.TEXT_STYLE -> {
                     val typeface = value as Int
                     applyTextStyle(textView, typeface)
                 }
+
                 TextStyle.TEXT_FLAG -> {
                     val flag = value as Int
                     applyTextFlag(textView, flag)
                 }
+
                 TextStyle.SHADOW -> {
                     run {
                         if (value is TextShadow) {
@@ -167,6 +166,7 @@ open class TextStyleBuilder {
                         }
                     }
                 }
+
                 TextStyle.BORDER -> {
                     if (value is TextBorder) {
                         applyTextBorder(textView, value)
@@ -207,11 +207,7 @@ open class TextStyleBuilder {
     }
 
     protected open fun applyBackgroundDrawable(textView: TextView, bg: Drawable?) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            textView.background = bg
-        } else {
-            textView.setBackgroundDrawable(bg)
-        }
+        textView.background = bg
     }
 
     // border
@@ -220,9 +216,7 @@ open class TextStyleBuilder {
         gd.cornerRadius = textBorder.corner
         gd.setStroke(textBorder.strokeWidth, textBorder.strokeColor)
         gd.setColor(textBorder.backGroundColor)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            textView.background = gd
-        }
+        textView.background = gd
     }
 
     // shadow

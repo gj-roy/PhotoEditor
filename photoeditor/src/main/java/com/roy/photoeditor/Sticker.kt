@@ -4,11 +4,6 @@ import android.graphics.Bitmap
 import android.view.View
 import android.widget.ImageView
 
-/**
- * Created by Burhanuddin Rashid on 14/05/21.
- *
- * @author <https:></https:>//github.com/burhanrashid52>
- */
 internal class Sticker(
     private val mPhotoEditorView: PhotoEditorView,
     private val mMultiTouchListener: MultiTouchListener,
