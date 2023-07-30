@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.burhanrashid52.photoediting.ColorPickerAdapter.OnColorPickerClickListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import ja.burhanrashid52.photoeditor.shape.ShapeType
+import com.roy.photoeditor.shape.ShapeType
 
 class ShapeBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChangeListener {
     private var mProperties: Properties? = null

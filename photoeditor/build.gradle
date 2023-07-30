@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'ja.burhanrashid52.photoeditor'
+    namespace 'com.roy.photoeditor'
     compileSdk 33
 
     defaultConfig {
