@@ -3,11 +3,6 @@ package com.roy.photoeditor
 import android.graphics.Bitmap.CompressFormat
 import androidx.annotation.IntRange
 
-/**
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- * @since 8/8/2018
- * Builder Class to apply multiple save options
- */
 class SaveSettings private constructor(builder: Builder) {
     val isTransparencyEnabled: Boolean
     val isClearViewsEnabled: Boolean
@@ -15,10 +10,14 @@ class SaveSettings private constructor(builder: Builder) {
     val compressQuality: Int
 
     class Builder {
-        @JvmField var isTransparencyEnabled = true
-        @JvmField var isClearViewsEnabled = true
-        @JvmField var compressFormat = CompressFormat.PNG
-        @JvmField var compressQuality = 100
+        @JvmField
+        var isTransparencyEnabled = true
+        @JvmField
+        var isClearViewsEnabled = true
+        @JvmField
+        var compressFormat = CompressFormat.PNG
+        @JvmField
+        var compressQuality = 100
 
         /**
          * Define a flag to enable transparency while saving image

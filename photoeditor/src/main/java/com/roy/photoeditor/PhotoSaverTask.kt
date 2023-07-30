@@ -10,11 +10,6 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-/**
- * Created by Burhanuddin Rashid on 18/05/21.
- *
- * @author <https:></https:>//github.com/burhanrashid52>
- */
 internal class PhotoSaverTask(
     private val photoEditorView: PhotoEditorView,
     private val boxHelper: BoxHelper,
@@ -84,8 +79,8 @@ internal class PhotoSaverTask(
         return bitmap
     }
 
-    companion object {
-        const val TAG = "PhotoSaverTask"
-    }
+//    companion object {
+//        const val TAG = "PhotoSaverTask"
+//    }
 
 }

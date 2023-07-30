@@ -10,17 +10,6 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.roy.photoeditor.FilterImageView.OnImageChangedListener
 
-/**
- *
- *
- * This ViewGroup will have the [DrawingView] to draw paint on it with [ImageView]
- * which our source image
- *
- *
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- * @version 0.1.1
- * @since 1/18/2018
- */
 class PhotoEditorView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

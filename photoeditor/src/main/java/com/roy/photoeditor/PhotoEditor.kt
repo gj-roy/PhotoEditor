@@ -12,11 +12,6 @@ import androidx.annotation.RequiresPermission
 import androidx.annotation.UiThread
 import com.roy.photoeditor.shape.ShapeBuilder
 
-/**
- * Created by Burhanuddin Rashid on 14/05/21.
- *
- * @author <https:></https:>//github.com/burhanrashid52>
- */
 interface PhotoEditor {
     /**
      * This will add image on [PhotoEditorView] which you drag,rotate and scale using pinch
@@ -28,7 +23,6 @@ interface PhotoEditor {
 
     /**
      * This add the text on the [PhotoEditorView] with provided parameters
-     * by default [TextView.setText] will be 18sp
      *
      * @param text              text to display
      * @param colorCodeTextView text color to be displayed
@@ -38,7 +32,6 @@ interface PhotoEditor {
 
     /**
      * This add the text on the [PhotoEditorView] with provided parameters
-     * by default [TextView.setText] will be 18sp
      *
      * @param textTypeface      typeface for custom font in the text
      * @param text              text to display
@@ -49,7 +42,6 @@ interface PhotoEditor {
 
     /**
      * This add the text on the [PhotoEditorView] with provided parameters
-     * by default [TextView.setText] will be 18sp
      *
      * @param text         text to display
      * @param styleBuilder text style builder with your style
@@ -61,8 +53,6 @@ interface PhotoEditor {
      * This will update text and color on provided view
      *
      * @param view      view on which you want update
-     * @param inputText text to update [TextView]
-     * @param colorCode color to update on [TextView]
      */
     fun editText(view: View, inputText: String, colorCode: Int)
 
@@ -71,8 +61,6 @@ interface PhotoEditor {
      *
      * @param view         root view where text view is a child
      * @param textTypeface update typeface for custom font in the text
-     * @param inputText    text to update [TextView]
-     * @param colorCode    color to update on [TextView]
      */
     fun editText(view: View, textTypeface: Typeface?, inputText: String, colorCode: Int)
 
@@ -80,14 +68,11 @@ interface PhotoEditor {
      * This will update the text and color on provided view
      *
      * @param view         root view where text view is a child
-     * @param inputText    text to update [TextView]
-     * @param styleBuilder style to apply on [TextView]
      */
     fun editText(view: View, inputText: String, styleBuilder: TextStyleBuilder?)
 
     /**
      * Adds emoji to the [PhotoEditorView] which you drag,rotate and scale using pinch
-     * if [PhotoEditorImpl.Builder.setPinchTextScalable] enabled
      *
      * @param emojiName unicode in form of string to display emoji
      */
@@ -95,7 +80,6 @@ interface PhotoEditor {
 
     /**
      * Adds emoji to the [PhotoEditorView] which you drag,rotate and scale using pinch
-     * if [PhotoEditorImpl.Builder.setPinchTextScalable] enabled
      *
      * @param emojiTypeface typeface for custom font to show emoji unicode in specific font
      * @param emojiName     unicode in form of string to display emoji
@@ -140,11 +124,9 @@ interface PhotoEditor {
     val eraserSize: Float
     /**
      * @return provide the size of eraser
-     * @see PhotoEditor.setBrushSize
      */
     /**
      * Set the size of brush user want to paint on canvas i.e [DrawingView]
-     * @param size size of brush
      */
     @set:Deprecated(
         """use {@code setShape} of a ShapeBuilder
@@ -154,11 +136,9 @@ interface PhotoEditor {
     var brushSize: Float
     /**
      * @return provide the size of eraser
-     * @see PhotoEditor.setBrushColor
      */
     /**
      * set brush color which user want to paint
-     * @param color color value for paint
      */
     @set:Deprecated(
         """use {@code setShape} of a ShapeBuilder

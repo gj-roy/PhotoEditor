@@ -14,22 +14,12 @@ import androidx.annotation.IntRange
 import androidx.annotation.RequiresPermission
 import com.roy.photoeditor.PhotoEditorImageViewListener.OnSingleTapUpCallback
 import com.roy.photoeditor.shape.ShapeBuilder
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/**
- *
- *
- * This class in initialize by [PhotoEditor.Builder] using a builder pattern with multiple
- * editing attributes
- *
- *
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- * @version 0.1.1
- * @since 18/01/2017
- */
 internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") constructor(
     builder: PhotoEditor.Builder
 ) : PhotoEditor {
@@ -69,7 +59,7 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
     }
 
     override fun addText(text: String, styleBuilder: TextStyleBuilder?) {
-        drawingView?.enableDrawing(false)
+        drawingView.enableDrawing(false)
         val multiTouchListener = getMultiTouchListener(isTextPinchScalable)
         val textGraphic = Text(
             photoEditorView,
@@ -112,7 +102,7 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
     }
 
     override fun addEmoji(emojiTypeface: Typeface?, emojiName: String) {
-        drawingView?.enableDrawing(false)
+        drawingView.enableDrawing(false)
         val multiTouchListener = getMultiTouchListener(true)
         val emoji = Emoji(
             photoEditorView,
@@ -150,38 +140,38 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
     }
 
     override fun setBrushDrawingMode(brushDrawingMode: Boolean) {
-        drawingView?.enableDrawing(brushDrawingMode)
+        drawingView.enableDrawing(brushDrawingMode)
     }
 
     override val brushDrawableMode: Boolean
-        get() = drawingView != null && drawingView.isDrawingEnabled
+        get() = drawingView.isDrawingEnabled
 
     override fun setOpacity(@IntRange(from = 0, to = 100) opacity: Int) {
         var opacityValue = opacity
         opacityValue = (opacityValue / 100.0 * 255.0).toInt()
-        drawingView?.currentShapeBuilder?.withShapeOpacity(opacityValue)
+        drawingView.currentShapeBuilder.withShapeOpacity(opacityValue)
     }
 
     override var brushSize: Float
-        get() = drawingView?.currentShapeBuilder?.shapeSize ?: 0f
+        get() = drawingView.currentShapeBuilder.shapeSize
         set(size) {
-            drawingView?.currentShapeBuilder?.withShapeSize(size)
+            drawingView.currentShapeBuilder.withShapeSize(size)
         }
     override var brushColor: Int
-        get() = drawingView?.currentShapeBuilder?.shapeColor ?: 0
+        get() = drawingView.currentShapeBuilder.shapeColor
         set(color) {
-            drawingView?.currentShapeBuilder?.withShapeColor(color)
+            drawingView.currentShapeBuilder.withShapeColor(color)
         }
 
     override fun setBrushEraserSize(brushEraserSize: Float) {
-        drawingView?.eraserSize = brushEraserSize
+        drawingView.eraserSize = brushEraserSize
     }
 
     override val eraserSize: Float
-        get() = drawingView?.eraserSize ?: 0f
+        get() = drawingView.eraserSize
 
     override fun brushEraser() {
-        drawingView?.brushEraser()
+        drawingView.brushEraser()
     }
 
     override fun undo(): Boolean {
@@ -226,6 +216,7 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
         return@withContext photoSaverTask.saveImageAsBitmap()
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     @RequiresPermission(allOf = [Manifest.permission.WRITE_EXTERNAL_STORAGE])
     override fun saveAsFile(
         imagePath: String,
@@ -245,6 +236,7 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
         saveAsFile(imagePath, SaveSettings.Builder().build(), onSaveListener)
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun saveAsBitmap(saveSettings: SaveSettings, onSaveBitmap: OnSaveBitmap) {
         GlobalScope.launch(Dispatchers.Main) {
             val bitmap = saveAsBitmap(saveSettings)
@@ -267,15 +259,15 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
 
     // region Shape
     override fun setShape(shapeBuilder: ShapeBuilder) {
-        drawingView?.currentShapeBuilder = shapeBuilder
+        drawingView.currentShapeBuilder = shapeBuilder
     } // endregion
 
-    companion object {
-        private const val TAG = "PhotoEditor"
-    }
+//    companion object {
+//        private const val TAG = "PhotoEditor"
+//    }
 
     init {
-        drawingView?.setBrushViewChangeListener(mBrushDrawingStateListener)
+        drawingView.setBrushViewChangeListener(mBrushDrawingStateListener)
         val mDetector = GestureDetector(
             context,
             PhotoEditorImageViewListener(
@@ -287,7 +279,7 @@ internal class PhotoEditorImpl @SuppressLint("ClickableViewAccessibility") const
                 }
             )
         )
-        imageView?.setOnTouchListener { _, event ->
+        imageView.setOnTouchListener { _, event ->
             mOnPhotoEditorListener?.onTouchSourceImage(event)
             mDetector.onTouchEvent(event)
         }
