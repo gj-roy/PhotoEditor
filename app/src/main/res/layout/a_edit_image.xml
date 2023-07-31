@@ -23,7 +23,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:photo_src="@drawable/blank_image" />
+        app:photo_src="@drawable/blank_image_white" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgUndo"
