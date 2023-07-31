@@ -6,16 +6,12 @@ import android.view.View
 import android.widget.ImageView
 import com.roy.photoeditor.MultiTouchListener.OnGestureControl
 
-/**
- * Created by Burhanuddin Rashid on 14/05/21.
- *
- * @author <https:></https:>//github.com/burhanrashid52>
- */
 internal abstract class Graphic(
     val context: Context,
     val layoutId: Int,
     val viewType: ViewType,
-    val graphicManager: GraphicManager?) {
+    val graphicManager: GraphicManager?
+) {
 
     val rootView: View
 

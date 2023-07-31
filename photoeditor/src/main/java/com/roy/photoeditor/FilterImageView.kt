@@ -12,11 +12,6 @@ import android.net.Uri
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 
-/**
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- * @version 0.1.2
- * @since 5/21/2018
- */
 internal class FilterImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

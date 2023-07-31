@@ -4,11 +4,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 
-/**
- * Created by Burhanuddin Rashid on 15/05/21.
- *
- * @author <https:></https:>//github.com/burhanrashid52>
- */
 internal class GraphicManager(
     private val mPhotoEditorView: PhotoEditorView,
     private val mViewState: PhotoEditorViewState
@@ -24,8 +19,7 @@ internal class GraphicManager(
         mViewState.addAddedView(view)
 
         onPhotoEditorListener?.onAddViewListener(
-            graphic.viewType,
-            mViewState.addedViewsCount
+            graphic.viewType, mViewState.addedViewsCount
         )
     }
 
@@ -36,8 +30,7 @@ internal class GraphicManager(
             mViewState.removeAddedView(view)
             mViewState.pushRedoView(view)
             onPhotoEditorListener?.onRemoveViewListener(
-                graphic.viewType,
-                mViewState.addedViewsCount
+                graphic.viewType, mViewState.addedViewsCount
             )
         }
     }
@@ -61,8 +54,7 @@ internal class GraphicManager(
             }
             when (val viewTag = removeView.tag) {
                 is ViewType -> onPhotoEditorListener?.onRemoveViewListener(
-                    viewTag,
-                    mViewState.addedViewsCount
+                    viewTag, mViewState.addedViewsCount
                 )
             }
         }
@@ -83,8 +75,7 @@ internal class GraphicManager(
             }
             when (val viewTag = redoView.tag) {
                 is ViewType -> onPhotoEditorListener?.onAddViewListener(
-                    viewTag,
-                    mViewState.addedViewsCount
+                    viewTag, mViewState.addedViewsCount
                 )
             }
         }

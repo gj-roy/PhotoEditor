@@ -1,5 +1,6 @@
 package com.roy.photoeditor
 
+import android.annotation.SuppressLint
 import android.graphics.Rect
 import android.view.GestureDetector
 import android.view.GestureDetector.SimpleOnGestureListener
@@ -10,13 +11,6 @@ import android.widget.ImageView
 import kotlin.math.max
 import kotlin.math.min
 
-/**
- * Created on 18/01/2017.
- *
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- *
- *
- */
 internal class MultiTouchListener(
     deleteView: View?,
     photoEditorView: PhotoEditorView,
@@ -46,6 +40,8 @@ internal class MultiTouchListener(
     private var mOnGestureControl: OnGestureControl? = null
     private val mOnPhotoEditorListener: OnPhotoEditorListener?
     private val viewState: PhotoEditorViewState
+
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(view: View, event: MotionEvent): Boolean {
         mScaleGestureDetector.onTouchEvent(view, event)
         mGestureListener.onTouchEvent(event)
@@ -68,6 +64,7 @@ internal class MultiTouchListener(
                 view.bringToFront()
                 firePhotoEditorSDKListener(view, true)
             }
+
             MotionEvent.ACTION_MOVE ->
                 // Only enable dragging on focused stickers.
                 if (view === viewState.currentSelectedView) {
@@ -80,6 +77,7 @@ internal class MultiTouchListener(
                         }
                     }
                 }
+
             MotionEvent.ACTION_CANCEL -> mActivePointerId = INVALID_POINTER_ID
             MotionEvent.ACTION_UP -> {
                 mActivePointerId = INVALID_POINTER_ID
@@ -93,6 +91,7 @@ internal class MultiTouchListener(
                 }
                 firePhotoEditorSDKListener(view, false)
             }
+
             MotionEvent.ACTION_POINTER_UP -> {
                 val pointerIndexPointerUp =
                     action and MotionEvent.ACTION_POINTER_INDEX_MASK shr MotionEvent.ACTION_POINTER_INDEX_SHIFT
@@ -146,8 +145,7 @@ internal class MultiTouchListener(
             val info = TransformInfo()
             info.deltaScale = if (isScaleEnabled) detector.getScaleFactor() else 1.0f
             info.deltaAngle = if (isRotateEnabled) Vector2D.getAngle(
-                mPrevSpanVector,
-                detector.getCurrentSpanVector()
+                mPrevSpanVector, detector.getCurrentSpanVector()
             ) else 0.0f
             info.deltaX = if (isTranslateEnabled) detector.getFocusX() - mPivotX else 0.0f
             info.deltaY = if (isTranslateEnabled) detector.getFocusY() - mPivotY else 0.0f
@@ -205,9 +203,11 @@ internal class MultiTouchListener(
                 degrees > 180.0f -> {
                     degrees - 360.0f
                 }
+
                 degrees < -180.0f -> {
                     degrees + 360.0f
                 }
+
                 else -> degrees
             }
         }
@@ -256,8 +256,7 @@ internal class MultiTouchListener(
         mOnPhotoEditorListener = onPhotoEditorListener
         outRect = if (deleteView != null) {
             Rect(
-                deleteView.left, deleteView.top,
-                deleteView.right, deleteView.bottom
+                deleteView.left, deleteView.top, deleteView.right, deleteView.bottom
             )
         } else {
             Rect(0, 0, 0, 0)

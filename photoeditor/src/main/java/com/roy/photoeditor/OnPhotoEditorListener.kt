@@ -3,16 +3,6 @@ package com.roy.photoeditor
 import android.view.MotionEvent
 import android.view.View
 
-/**
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- * @version 0.1.1
- * @since 18/01/2017
- *
- *
- * This are the callbacks when any changes happens while editing the photo to make and custimization
- * on client side
- *
- */
 interface OnPhotoEditorListener {
     /**
      * When user long press the existing text this event will trigger implying that user want to
