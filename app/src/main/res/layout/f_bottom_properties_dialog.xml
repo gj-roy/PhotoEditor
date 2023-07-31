@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sbOpacity"
         tools:background="@android:color/black"
-        tools:listitem="@layout/color_picker_item_list" />
+        tools:listitem="@layout/v_color_picker_item_list" />
 
     <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/sbOpacity"

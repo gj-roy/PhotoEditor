@@ -19,6 +19,8 @@
     <string name="msg_share_image">Share Image</string>
     <string name="brush">Brush</string>
     <string name="opacity">Opacity</string>
+    <string name="rotation">Rotation</string>
+    <string name="done">Done</string>
     <string-array name="photo_editor_emoji">
 
         <!-- Smiles -->

@@ -8,7 +8,6 @@
     android:background="@android:color/black"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -26,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:photo_src="@drawable/blank_image" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgUndo"
         android:layout_width="@dimen/top_tool_icon_width"
         android:layout_height="wrap_content"
@@ -36,7 +35,7 @@
         app:layout_constraintBottom_toTopOf="@+id/rvConstraintTools"
         app:layout_constraintEnd_toStartOf="@+id/imgRedo" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgRedo"
         android:layout_width="@dimen/top_tool_icon_width"
         android:layout_height="wrap_content"
@@ -46,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@+id/rvConstraintTools"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgGallery"
         android:layout_width="@dimen/top_tool_icon_width"
         android:layout_height="wrap_content"
@@ -56,7 +55,7 @@
         app:layout_constraintBottom_toTopOf="@+id/rvConstraintTools"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgCamera"
         android:layout_width="@dimen/top_tool_icon_width"
         android:layout_height="wrap_content"
@@ -66,12 +65,11 @@
         app:layout_constraintBottom_toTopOf="@+id/rvConstraintTools"
         app:layout_constraintStart_toEndOf="@id/imgGallery" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_margin="8dp"
         android:src="@drawable/ic_close"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,12 +102,11 @@
         app:layout_constraintTop_toTopOf="@+id/rvConstraintTools"
         tools:listitem="@layout/v_row_filter_view" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtCurrentTool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:singleLine="true"
         android:text="@string/app_name"
         android:textColor="@android:color/white"
@@ -118,7 +115,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -128,7 +125,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgShare"
         android:layout_width="@dimen/top_tool_icon_width"
         android:layout_height="wrap_content"

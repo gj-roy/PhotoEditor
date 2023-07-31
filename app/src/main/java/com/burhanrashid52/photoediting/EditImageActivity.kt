@@ -80,7 +80,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         makeFullScreen()
-        setContentView(R.layout.activity_edit_image)
+        setContentView(R.layout.a_edit_image)
 
         initViews()
 

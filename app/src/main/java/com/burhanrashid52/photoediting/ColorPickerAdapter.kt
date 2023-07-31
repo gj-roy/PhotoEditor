@@ -25,7 +25,7 @@ class ColorPickerAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = inflater.inflate(R.layout.color_picker_item_list, parent, false)
+        val view = inflater.inflate(R.layout.v_color_picker_item_list, parent, false)
         return ViewHolder(view)
     }
 
@@ -42,7 +42,7 @@ class ColorPickerAdapter internal constructor(
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var colorPickerView: View = itemView.findViewById(R.id.color_picker_view)
+        var colorPickerView: View = itemView.findViewById(R.id.colorPickerView)
 
         init {
             itemView.setOnClickListener {

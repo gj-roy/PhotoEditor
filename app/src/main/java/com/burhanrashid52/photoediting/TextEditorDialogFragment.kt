@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,7 +50,7 @@ class TextEditorDialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.add_text_dialog, container, false)
+        return inflater.inflate(R.layout.v_add_text_dialog, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,14 +58,14 @@ class TextEditorDialogFragment : DialogFragment() {
 
         val activity = requireActivity()
 
-        mAddTextEditText = view.findViewById(R.id.add_text_edit_text)
+        mAddTextEditText = view.findViewById(R.id.addTextEditText)
         mInputMethodManager =
             activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        mAddTextDoneTextView = view.findViewById(R.id.add_text_done_tv)
+        mAddTextDoneTextView = view.findViewById(R.id.addTextDoneTv)
 
         //Setup the color picker for text color
         val addTextColorPickerRecyclerView: RecyclerView =
-            view.findViewById(R.id.add_text_color_picker_recycler_view)
+            view.findViewById(R.id.addTextColorPickerRecyclerView)
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         addTextColorPickerRecyclerView.layoutManager = layoutManager
         addTextColorPickerRecyclerView.setHasFixedSize(true)
