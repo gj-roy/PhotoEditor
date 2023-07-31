@@ -3,9 +3,7 @@ package com.burhanrashid52.photoediting
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,7 +60,7 @@ class StickerBSFragment : BottomSheetDialogFragment() {
 
     inner class StickerAdapter : RecyclerView.Adapter<StickerAdapter.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.row_sticker, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.v_row_sticker, parent, false)
             return ViewHolder(view)
         }
 

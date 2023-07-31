@@ -102,7 +102,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/rvConstraintTools"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rvConstraintTools"
-        tools:listitem="@layout/row_filter_view" />
+        tools:listitem="@layout/v_row_filter_view" />
 
     <TextView
         android:id="@+id/txtCurrentTool"

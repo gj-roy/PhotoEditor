@@ -61,7 +61,7 @@ class EmojiBSFragment : BottomSheetDialogFragment() {
     inner class EmojiAdapter : RecyclerView.Adapter<EmojiAdapter.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.row_emoji, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.v_row_emoji, parent, false)
             return ViewHolder(view)
         }
 
