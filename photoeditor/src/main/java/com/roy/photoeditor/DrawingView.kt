@@ -13,17 +13,6 @@ import android.view.View
 import com.roy.photoeditor.shape.*
 import java.util.*
 
-/**
- *
- *
- * This is custom drawing view used to do painting on user touch events it it will paint on canvas
- * as per attributes provided to the paint
- *
- *
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- * @version 0.1.1
- * @since 12/1/18
- */
 class DrawingView @JvmOverloads constructor(
     context: Context?,
     attrs: AttributeSet? = null,
@@ -52,7 +41,7 @@ class DrawingView @JvmOverloads constructor(
         paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_OVER)
 
         // apply shape builder parameters
-        currentShapeBuilder?.apply {
+        currentShapeBuilder.apply {
             paint.strokeWidth = this.shapeSize
             // 'paint.color' must be called before 'paint.alpha',
             // otherwise 'paint.alpha' value will be overwritten.
@@ -135,15 +124,19 @@ class DrawingView @JvmOverloads constructor(
                 ShapeType.Oval -> {
                     shape = OvalShape()
                 }
+
                 ShapeType.Brush -> {
                     shape = BrushShape()
                 }
+
                 ShapeType.Rectangle -> {
                     shape = RectangleShape()
                 }
+
                 ShapeType.Line -> {
                     shape = LineShape(context)
                 }
+
                 is ShapeType.Arrow -> {
                     shape = LineShape(context, shapeType.pointerLocation)
                 }

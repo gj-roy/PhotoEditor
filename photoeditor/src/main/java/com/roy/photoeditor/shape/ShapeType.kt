@@ -1,8 +1,5 @@
 package com.roy.photoeditor.shape
 
-/**
- * The different kind of known Shapes.
- */
 sealed interface ShapeType {
 
     object Brush : ShapeType

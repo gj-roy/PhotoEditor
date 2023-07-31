@@ -1,10 +1,5 @@
 package com.roy.photoeditor
 
-/**
- * Created by Burhanuddin Rashid on 17/05/21.
- *
- * @author <https:></https:>//github.com/burhanrashid52>
- */
 class BrushDrawingStateListener internal constructor(
     private val mPhotoEditorView: PhotoEditorView,
     private val mViewState: PhotoEditorViewState

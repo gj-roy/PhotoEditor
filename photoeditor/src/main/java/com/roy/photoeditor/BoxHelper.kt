@@ -4,11 +4,6 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 
-/**
- * Created by Burhanuddin Rashid on 18/05/21.
- *
- * @author <https:></https:>//github.com/burhanrashid52>
- */
 internal class BoxHelper(
     private val mPhotoEditorView: PhotoEditorView,
     private val mViewState: PhotoEditorViewState

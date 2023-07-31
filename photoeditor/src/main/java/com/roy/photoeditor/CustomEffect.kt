@@ -4,13 +4,6 @@ import android.text.TextUtils
 import com.roy.photoeditor.CustomEffect.Builder
 import java.util.*
 
-/**
- * Define your custom effect using [Builder] class
- *
- * @author [Burhanuddin Rashid](https://github.com/burhanrashid52)
- * @version 0.1.2
- * @since 5/22/2018
- */
 class CustomEffect private constructor(builder: Builder) {
     /**
      * @return Custom effect name from [android.media.effect.EffectFactory.createEffect]
@@ -48,12 +41,6 @@ class CustomEffect private constructor(builder: Builder) {
             return CustomEffect(this)
         }
 
-        /**
-         * Initiate your custom effect
-         *
-         * @param effectName custom effect name from [android.media.effect.EffectFactory.createEffect]
-         * @throws RuntimeException exception when effect name is empty
-         */
         init {
             if (TextUtils.isEmpty(effectName)) {
                 throw RuntimeException("Effect name cannot be empty.Please provide effect name from EffectFactory")
@@ -61,7 +48,7 @@ class CustomEffect private constructor(builder: Builder) {
             mEffectName = effectName
         }
     }
-    
+
     init {
         parameters = builder.parametersMap
     }

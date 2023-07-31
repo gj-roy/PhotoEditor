@@ -3,12 +3,6 @@ package com.roy.photoeditor.shape
 import android.graphics.Color
 import androidx.annotation.ColorInt
 
-/**
- *
- *
- * Used to hold a Shape parameters: type, size, opacity and color.
- *
- */
 class ShapeBuilder {
 
     var shapeType: ShapeType = ShapeType.Brush
