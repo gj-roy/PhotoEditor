@@ -86,7 +86,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
 
         handleIntentImage(mPhotoEditorView.source)
 
-        mWonderFont = Typeface.createFromAsset(assets, "beyond_wonderland.ttf")
+        mWonderFont = Typeface.createFromAsset(assets, "font-beyond_wonderland.ttf")
 
         mPropertiesBSFragment = PropertiesBSFragment()
         mEmojiBSFragment = EmojiBSFragment()
@@ -109,7 +109,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         val pinchTextScalable = intent.getBooleanExtra(PINCH_TEXT_SCALABLE_INTENT_KEY, true)
 
         //Typeface mTextRobotoTf = ResourcesCompat.getFont(this, R.font.roboto_medium);
-        //Typeface mEmojiTypeFace = Typeface.createFromAsset(getAssets(), "emojione-android.ttf");
+        //Typeface mEmojiTypeFace = Typeface.createFromAsset(getAssets(), "font-emojione-android.ttf");
 
         mPhotoEditor = PhotoEditor.Builder(this, mPhotoEditorView)
             .setPinchTextScalable(pinchTextScalable) // set flag to make text scalable when pinch
