@@ -1,4 +1,4 @@
-package com.roy93group.photoediting
+package com.roy93group.photoediting.ui.f
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.roy93group.photoediting.ColorPickerAdapter.OnColorPickerClickListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roy.photoeditor.shape.ShapeType
+import com.roy93group.photoediting.ColorPickerAdapter
+import com.roy93group.photoediting.R
 
 class ShapeBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChangeListener {
     private var mProperties: Properties? = null
@@ -41,19 +43,23 @@ class ShapeBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChangeList
         shapeGroup.setOnCheckedChangeListener { _: RadioGroup?, checkedId: Int ->
             when (checkedId) {
                 R.id.lineRadioButton -> {
-                    mProperties!!.onShapePicked(ShapeType.Line)
+                    mProperties?.onShapePicked(ShapeType.Line)
                 }
+
                 R.id.arrowRadioButton -> {
-                    mProperties!!.onShapePicked(ShapeType.Arrow())
+                    mProperties?.onShapePicked(ShapeType.Arrow())
                 }
+
                 R.id.ovalRadioButton -> {
-                    mProperties!!.onShapePicked(ShapeType.Oval)
+                    mProperties?.onShapePicked(ShapeType.Oval)
                 }
+
                 R.id.rectRadioButton -> {
-                    mProperties!!.onShapePicked(ShapeType.Rectangle)
+                    mProperties?.onShapePicked(ShapeType.Rectangle)
                 }
+
                 else -> {
-                    mProperties!!.onShapePicked(ShapeType.Brush)
+                    mProperties?.onShapePicked(ShapeType.Brush)
                 }
             }
         }
@@ -71,7 +77,7 @@ class ShapeBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChangeList
             override fun onColorPickerClickListener(colorCode: Int) {
                 if (mProperties != null) {
                     dismiss()
-                    mProperties!!.onColorChanged(colorCode)
+                    mProperties?.onColorChanged(colorCode)
                 }
             }
         })
@@ -85,10 +91,11 @@ class ShapeBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChangeList
     override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
         when (seekBar.id) {
             R.id.shapeOpacity -> if (mProperties != null) {
-                mProperties!!.onOpacityChanged(i)
+                mProperties?.onOpacityChanged(i)
             }
+
             R.id.shapeSize -> if (mProperties != null) {
-                mProperties!!.onShapeSizeChanged(i)
+                mProperties?.onShapeSizeChanged(i)
             }
         }
     }

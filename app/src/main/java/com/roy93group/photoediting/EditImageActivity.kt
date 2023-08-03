@@ -29,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
 import com.roy93group.photoediting.EmojiBSFragment.EmojiListener
-import com.roy93group.photoediting.StickerBSFragment.StickerListener
+import com.roy93group.photoediting.ui.f.StickerBSFragment.StickerListener
 import com.roy93group.photoediting.base.BaseActivity
 import com.roy93group.photoediting.filters.FilterListener
 import com.roy93group.photoediting.filters.FilterViewAdapter
@@ -48,6 +48,8 @@ import com.roy.photoeditor.ViewType
 import com.roy.photoeditor.shape.ShapeBuilder
 import com.roy.photoeditor.shape.ShapeType
 import com.roy93group.photoediting.ui.dlg.TextEditorDialogFragment
+import com.roy93group.photoediting.ui.f.ShapeBSFragment
+import com.roy93group.photoediting.ui.f.StickerBSFragment
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
