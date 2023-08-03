@@ -1,4 +1,4 @@
-package com.roy93group.photoediting
+package com.roy93group.photoediting.ui.a
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -39,6 +39,7 @@ import com.roy.photoeditor.TextStyleBuilder
 import com.roy.photoeditor.ViewType
 import com.roy.photoeditor.shape.ShapeBuilder
 import com.roy.photoeditor.shape.ShapeType
+import com.roy93group.photoediting.R
 import com.roy93group.photoediting.base.BaseActivity
 import com.roy93group.photoediting.filters.FilterListener
 import com.roy93group.photoediting.filters.FilterViewAdapter

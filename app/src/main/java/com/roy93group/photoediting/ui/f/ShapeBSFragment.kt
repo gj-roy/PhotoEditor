@@ -8,10 +8,10 @@ import android.widget.RadioGroup
 import android.widget.SeekBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.roy93group.photoediting.ColorPickerAdapter.OnColorPickerClickListener
+import com.roy93group.photoediting.ui.adt.ColorPickerAdapter.OnColorPickerClickListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roy.photoeditor.shape.ShapeType
-import com.roy93group.photoediting.ColorPickerAdapter
+import com.roy93group.photoediting.ui.adt.ColorPickerAdapter
 import com.roy93group.photoediting.R
 
 class ShapeBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChangeListener {

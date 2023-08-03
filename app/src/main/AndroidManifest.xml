@@ -22,7 +22,7 @@
         tools:replace="android:allowBackup">
 
         <activity
-            android:name=".EditImageActivity"
+            android:name=".ui.a.EditImageActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar">

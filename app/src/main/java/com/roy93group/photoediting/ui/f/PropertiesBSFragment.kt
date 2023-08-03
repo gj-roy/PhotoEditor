@@ -8,8 +8,8 @@ import android.widget.SeekBar
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.roy93group.photoediting.ColorPickerAdapter
-import com.roy93group.photoediting.ColorPickerAdapter.OnColorPickerClickListener
+import com.roy93group.photoediting.ui.adt.ColorPickerAdapter
+import com.roy93group.photoediting.ui.adt.ColorPickerAdapter.OnColorPickerClickListener
 import com.roy93group.photoediting.R
 
 class PropertiesBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChangeListener {
