@@ -1,4 +1,4 @@
-package com.roy93group.photoediting
+package com.roy93group.photoediting.ui.f
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -14,6 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.roy93group.photoediting.PhotoApp.Companion.photoApp
+import com.roy93group.photoediting.R
 import java.lang.NumberFormatException
 import java.util.ArrayList
 
@@ -79,7 +80,7 @@ class EmojiBSFragment : BottomSheetDialogFragment() {
             init {
                 itemView.setOnClickListener {
                     if (mEmojiListener != null) {
-                        mEmojiListener!!.onEmojiClick(emojisList[layoutPosition])
+                        mEmojiListener?.onEmojiClick(emojisList[layoutPosition])
                     }
                     dismiss()
                 }
@@ -96,11 +97,13 @@ class EmojiBSFragment : BottomSheetDialogFragment() {
          * @param context context
          * @return list of emoji unicode
          */
-        fun getEmojis(context: Context?): ArrayList<String> {
+        private fun getEmojis(context: Context?): ArrayList<String> {
             val convertedEmojiList = ArrayList<String>()
-            val emojiList = context!!.resources.getStringArray(R.array.photo_editor_emoji)
-            for (emojiUnicode in emojiList) {
-                convertedEmojiList.add(convertEmoji(emojiUnicode))
+            val emojiList = context?.resources?.getStringArray(R.array.photo_editor_emoji)
+            if (emojiList != null) {
+                for (emojiUnicode in emojiList) {
+                    convertedEmojiList.add(convertEmoji(emojiUnicode))
+                }
             }
             return convertedEmojiList
         }
@@ -110,6 +113,7 @@ class EmojiBSFragment : BottomSheetDialogFragment() {
                 val convertEmojiToInt = emoji.substring(2).toInt(16)
                 String(Character.toChars(convertEmojiToInt))
             } catch (e: NumberFormatException) {
+                e.printStackTrace()
                 ""
             }
         }

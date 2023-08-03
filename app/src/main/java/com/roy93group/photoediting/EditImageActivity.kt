@@ -28,14 +28,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
-import com.roy93group.photoediting.EmojiBSFragment.EmojiListener
-import com.roy93group.photoediting.ui.f.StickerBSFragment.StickerListener
-import com.roy93group.photoediting.base.BaseActivity
-import com.roy93group.photoediting.filters.FilterListener
-import com.roy93group.photoediting.filters.FilterViewAdapter
-import com.roy93group.photoediting.tools.EditingToolsAdapter
-import com.roy93group.photoediting.tools.EditingToolsAdapter.OnItemSelected
-import com.roy93group.photoediting.tools.ToolType
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roy.photoeditor.OnPhotoEditorListener
 import com.roy.photoeditor.PhotoEditor
@@ -47,10 +39,19 @@ import com.roy.photoeditor.TextStyleBuilder
 import com.roy.photoeditor.ViewType
 import com.roy.photoeditor.shape.ShapeBuilder
 import com.roy.photoeditor.shape.ShapeType
+import com.roy93group.photoediting.base.BaseActivity
+import com.roy93group.photoediting.filters.FilterListener
+import com.roy93group.photoediting.filters.FilterViewAdapter
+import com.roy93group.photoediting.tools.EditingToolsAdapter
+import com.roy93group.photoediting.tools.EditingToolsAdapter.OnItemSelected
+import com.roy93group.photoediting.tools.ToolType
 import com.roy93group.photoediting.ui.dlg.TextEditorDialogFragment
+import com.roy93group.photoediting.ui.f.EmojiBSFragment
+import com.roy93group.photoediting.ui.f.EmojiBSFragment.EmojiListener
 import com.roy93group.photoediting.ui.f.PropertiesBSFragment
 import com.roy93group.photoediting.ui.f.ShapeBSFragment
 import com.roy93group.photoediting.ui.f.StickerBSFragment
+import com.roy93group.photoediting.ui.f.StickerBSFragment.StickerListener
 import com.roy93group.photoediting.utils.FileSaveHelper
 import kotlinx.coroutines.launch
 import java.io.File
@@ -84,11 +85,11 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         makeFullScreen()
         setContentView(R.layout.a_edit_image)
 
         initViews()
-
         handleIntentImage(mPhotoEditorView.source)
 
         mWonderFont = Typeface.createFromAsset(assets, "font-beyond_wonderland.ttf")
@@ -110,13 +111,12 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         mRvFilters.layoutManager = llmFilters
         mRvFilters.adapter = mFilterViewAdapter
 
-        // NOTE(lucianocheng): Used to set integration testing parameters to PhotoEditor
         val pinchTextScalable = intent.getBooleanExtra(PINCH_TEXT_SCALABLE_INTENT_KEY, true)
 
         //Typeface mTextRobotoTf = ResourcesCompat.getFont(this, R.font.roboto_medium);
         //Typeface mEmojiTypeFace = Typeface.createFromAsset(getAssets(), "font-emojione-android.ttf");
 
-        mPhotoEditor = PhotoEditor.Builder(this, mPhotoEditorView)
+        mPhotoEditor = PhotoEditor.Builder(context = this, photoEditorView = mPhotoEditorView)
             .setPinchTextScalable(pinchTextScalable) // set flag to make text scalable when pinch
             //.setDefaultTextTypeface(mTextRobotoTf)
             //.setDefaultEmojiTypeface(mEmojiTypeFace)
@@ -134,7 +134,6 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         if (intent == null) {
             return
         }
-
         when (intent.action) {
             Intent.ACTION_EDIT, ACTION_NEXTGEN_EDIT -> {
                 try {
@@ -187,9 +186,17 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         imgShare.setOnClickListener(this)
     }
 
-    override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
+    override fun onEditTextChangeListener(
+        rootView: View,
+        text: String,
+        colorCode: Int
+    ) {
         val textEditorDialogFragment =
-            TextEditorDialogFragment.show(this, text.toString(), colorCode)
+            TextEditorDialogFragment.show(
+                appCompatActivity = this,
+                inputText = text,
+                colorCode = colorCode
+            )
         textEditorDialogFragment.setOnTextEditorListener(object :
             TextEditorDialogFragment.TextEditorListener {
             override fun onDone(inputText: String, colorCode: Int) {
@@ -201,16 +208,24 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         })
     }
 
-    override fun onAddViewListener(viewType: ViewType, numberOfAddedViews: Int) {
+    override fun onAddViewListener(
+        viewType: ViewType,
+        numberOfAddedViews: Int
+    ) {
         Log.d(
-            TAG,
+            /* tag = */ TAG,
+            /* msg = */
             "onAddViewListener() called with: viewType = [$viewType], numberOfAddedViews = [$numberOfAddedViews]"
         )
     }
 
-    override fun onRemoveViewListener(viewType: ViewType, numberOfAddedViews: Int) {
+    override fun onRemoveViewListener(
+        viewType: ViewType,
+        numberOfAddedViews: Int
+    ) {
         Log.d(
-            TAG,
+            /* tag = */ TAG,
+            /* msg = */
             "onRemoveViewListener() called with: viewType = [$viewType], numberOfAddedViews = [$numberOfAddedViews]"
         )
     }
@@ -269,9 +284,9 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
         val path: String = uri.path ?: throw IllegalArgumentException("URI Path Expected")
 
         return FileProvider.getUriForFile(
-            this,
-            FILE_PROVIDER_AUTHORITY,
-            File(path)
+            /* context = */ this,
+            /* authority = */ FILE_PROVIDER_AUTHORITY,
+            /* file = */ File(path)
         )
     }
 
@@ -340,7 +355,7 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
                     mPhotoEditor.clearAllViews()
                     val uri = data?.data
                     val bitmap = MediaStore.Images.Media.getBitmap(
-                        contentResolver, uri
+                        /* cr = */ contentResolver, /* url = */ uri
                     )
                     mPhotoEditorView.source.setImageBitmap(bitmap)
                 } catch (e: IOException) {
@@ -380,7 +395,10 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
     }
 
     @SuppressLint("MissingPermission")
-    override fun isPermissionGranted(isGranted: Boolean, permission: String?) {
+    override fun isPermissionGranted(
+        isGranted: Boolean,
+        permission: String?
+    ) {
         if (isGranted) {
             saveImage()
         }
@@ -448,32 +466,34 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
     private fun showFilter(isVisible: Boolean) {
         mIsFilterVisible = isVisible
         mConstraintSet.clone(mRootView)
-
         val rvFilterId: Int = mRvFilters.id
-
         if (isVisible) {
             mConstraintSet.clear(rvFilterId, ConstraintSet.START)
             mConstraintSet.connect(
-                rvFilterId, ConstraintSet.START,
-                ConstraintSet.PARENT_ID, ConstraintSet.START
+                /* startID = */ rvFilterId,
+                /* startSide = */ ConstraintSet.START,
+                /* endID = */ ConstraintSet.PARENT_ID,
+                /* endSide = */ ConstraintSet.START
             )
             mConstraintSet.connect(
-                rvFilterId, ConstraintSet.END,
-                ConstraintSet.PARENT_ID, ConstraintSet.END
+                /* startID = */ rvFilterId,
+                /* startSide = */ ConstraintSet.END,
+                /* endID = */ ConstraintSet.PARENT_ID,
+                /* endSide = */ ConstraintSet.END
             )
         } else {
             mConstraintSet.connect(
-                rvFilterId, ConstraintSet.START,
-                ConstraintSet.PARENT_ID, ConstraintSet.END
+                /* startID = */ rvFilterId,
+                /* startSide = */ ConstraintSet.START,
+                /* endID = */ ConstraintSet.PARENT_ID,
+                /* endSide = */ ConstraintSet.END
             )
-            mConstraintSet.clear(rvFilterId, ConstraintSet.END)
+            mConstraintSet.clear(/* viewId = */ rvFilterId, /* anchor = */ ConstraintSet.END)
         }
-
         val changeBounds = ChangeBounds()
         changeBounds.duration = 350
         changeBounds.interpolator = AnticipateOvershootInterpolator(1.0f)
         TransitionManager.beginDelayedTransition(mRootView, changeBounds)
-
         mConstraintSet.applyTo(mRootView)
     }
 
@@ -489,10 +509,8 @@ class EditImageActivity : BaseActivity(), OnPhotoEditorListener, View.OnClickLis
     }
 
     companion object {
-
         private const val TAG = "EditImageActivity"
-
-        const val FILE_PROVIDER_AUTHORITY = "com.burhanrashid52.photoediting.fileprovider"
+        const val FILE_PROVIDER_AUTHORITY = "com.roy93group.photoediting.fileprovider"
         private const val CAMERA_REQUEST = 52
         private const val PICK_REQUEST = 53
         const val ACTION_NEXTGEN_EDIT = "action_nextgen_edit"
