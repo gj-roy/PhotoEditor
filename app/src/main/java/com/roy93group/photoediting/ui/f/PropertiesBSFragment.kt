@@ -1,4 +1,4 @@
-package com.roy93group.photoediting
+package com.roy93group.photoediting.ui.f
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,9 @@ import android.widget.SeekBar
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.roy93group.photoediting.ColorPickerAdapter
 import com.roy93group.photoediting.ColorPickerAdapter.OnColorPickerClickListener
+import com.roy93group.photoediting.R
 
 class PropertiesBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChangeListener {
     private var mProperties: Properties? = null
@@ -58,6 +60,7 @@ class PropertiesBSFragment : BottomSheetDialogFragment(), SeekBar.OnSeekBarChang
             R.id.sbOpacity -> if (mProperties != null) {
                 mProperties?.onOpacityChanged(i)
             }
+
             R.id.sbSize -> if (mProperties != null) {
                 mProperties?.onShapeSizeChanged(i)
             }

@@ -2,9 +2,6 @@ package com.roy93group.photoediting
 
 import android.app.Application
 
-/**
- * Created by Burhanuddin Rashid on 1/23/2018.
- */
 class PhotoApp : Application() {
     override fun onCreate() {
         super.onCreate()

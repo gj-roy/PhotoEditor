@@ -1,4 +1,4 @@
-package com.roy93group.photoediting
+package com.roy93group.photoediting.utils
 
 import android.annotation.SuppressLint
 import android.content.ContentResolver
@@ -38,7 +38,7 @@ class FileSaveHelper(private val mContentResolver: ContentResolver) : LifecycleO
     private var resultListener: OnFileCreateResult? = null
     private val observer = Observer { fileMeta: FileMeta ->
         if (resultListener != null) {
-            resultListener!!.onFileCreateResult(
+            resultListener?.onFileCreateResult(
                 fileMeta.isCreated,
                 fileMeta.filePath,
                 fileMeta.error,
@@ -71,7 +71,7 @@ class FileSaveHelper(private val mContentResolver: ContentResolver) : LifecycleO
      */
     fun createFile(fileNameToSave: String, listener: OnFileCreateResult?) {
         resultListener = listener
-        executor!!.submit {
+        executor?.submit {
             var cursor: Cursor? = null
             try {
 
@@ -83,11 +83,11 @@ class FileSaveHelper(private val mContentResolver: ContentResolver) : LifecycleO
 
                 // Query the MediaStore for the image file path from the image Uri
                 cursor = mContentResolver.query(
-                    editedImageUri,
-                    arrayOf(MediaStore.Images.Media.DATA),
-                    null,
-                    null,
-                    null
+                    /* uri = */ editedImageUri,
+                    /* projection = */ arrayOf(MediaStore.Images.Media.DATA),
+                    /* selection = */ null,
+                    /* selectionArgs = */ null,
+                    /* sortOrder = */ null
                 )
                 val columnIndex = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
                 cursor.moveToFirst()
@@ -113,7 +113,7 @@ class FileSaveHelper(private val mContentResolver: ContentResolver) : LifecycleO
         newImageDetails.put(MediaStore.Images.Media.DISPLAY_NAME, fileNameToSave)
         val editedImageUri = mContentResolver.insert(imageCollection, newImageDetails)
         val outputStream = mContentResolver.openOutputStream(editedImageUri!!)
-        outputStream!!.close()
+        outputStream?.close()
         return editedImageUri
     }
 
@@ -156,7 +156,6 @@ class FileSaveHelper(private val mContentResolver: ContentResolver) : LifecycleO
          * @param created  whether file creation is success or failure
          * @param filePath filepath on disk. null in case of failure
          * @param error    in case file creation is failed . it would represent the cause
-         * @param Uri      Uri to the newly created file. null in case of failure
          */
         fun onFileCreateResult(created: Boolean, filePath: String?, error: String?, uri: Uri?)
     }
