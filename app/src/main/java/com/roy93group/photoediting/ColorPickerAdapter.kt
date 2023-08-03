@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting
+package com.roy93group.photoediting
 
 import android.content.Context
 import android.view.LayoutInflater

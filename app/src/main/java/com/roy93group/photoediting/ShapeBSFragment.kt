@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting
+package com.roy93group.photoediting
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.RadioGroup
 import android.widget.SeekBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.burhanrashid52.photoediting.ColorPickerAdapter.OnColorPickerClickListener
+import com.roy93group.photoediting.ColorPickerAdapter.OnColorPickerClickListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roy.photoeditor.shape.ShapeType
 

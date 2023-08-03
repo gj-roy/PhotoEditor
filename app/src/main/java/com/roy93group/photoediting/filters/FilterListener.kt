@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting.filters
+package com.roy93group.photoediting.filters
 
 import com.roy.photoeditor.PhotoFilter
 

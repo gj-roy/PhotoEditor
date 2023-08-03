@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.burhanrashid52.photoediting'
+    namespace 'com.roy93group.photoediting'
     compileSdk 34
 
     defaultConfig {

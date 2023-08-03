@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting
+package com.roy93group.photoediting
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -13,7 +13,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCa
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.GridLayoutManager
-import com.burhanrashid52.photoediting.PhotoApp.Companion.photoApp
+import com.roy93group.photoediting.PhotoApp.Companion.photoApp
 import java.lang.NumberFormatException
 import java.util.ArrayList
 

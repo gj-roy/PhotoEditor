@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting
+package com.roy93group.photoediting
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -28,14 +28,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
-import com.burhanrashid52.photoediting.EmojiBSFragment.EmojiListener
-import com.burhanrashid52.photoediting.StickerBSFragment.StickerListener
-import com.burhanrashid52.photoediting.base.BaseActivity
-import com.burhanrashid52.photoediting.filters.FilterListener
-import com.burhanrashid52.photoediting.filters.FilterViewAdapter
-import com.burhanrashid52.photoediting.tools.EditingToolsAdapter
-import com.burhanrashid52.photoediting.tools.EditingToolsAdapter.OnItemSelected
-import com.burhanrashid52.photoediting.tools.ToolType
+import com.roy93group.photoediting.EmojiBSFragment.EmojiListener
+import com.roy93group.photoediting.StickerBSFragment.StickerListener
+import com.roy93group.photoediting.base.BaseActivity
+import com.roy93group.photoediting.filters.FilterListener
+import com.roy93group.photoediting.filters.FilterViewAdapter
+import com.roy93group.photoediting.tools.EditingToolsAdapter
+import com.roy93group.photoediting.tools.EditingToolsAdapter.OnItemSelected
+import com.roy93group.photoediting.tools.ToolType
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roy.photoeditor.OnPhotoEditorListener
 import com.roy.photoeditor.PhotoEditor

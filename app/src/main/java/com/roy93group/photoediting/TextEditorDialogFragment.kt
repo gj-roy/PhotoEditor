@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting
+package com.roy93group.photoediting
 
 import android.content.Context
 import android.graphics.Color
@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.burhanrashid52.photoediting.ColorPickerAdapter.OnColorPickerClickListener
+import com.roy93group.photoediting.ColorPickerAdapter.OnColorPickerClickListener
 
 /**
  * Created by Burhanuddin Rashid on 1/16/2018.

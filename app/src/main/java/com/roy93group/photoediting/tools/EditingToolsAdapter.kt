@@ -1,4 +1,4 @@
-package com.burhanrashid52.photoediting.tools
+package com.roy93group.photoediting.tools
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.burhanrashid52.photoediting.R
+import com.roy93group.photoediting.R
 import java.util.ArrayList
 
 /**
