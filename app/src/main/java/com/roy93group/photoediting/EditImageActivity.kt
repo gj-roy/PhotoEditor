@@ -47,6 +47,7 @@ import com.roy.photoeditor.TextStyleBuilder
 import com.roy.photoeditor.ViewType
 import com.roy.photoeditor.shape.ShapeBuilder
 import com.roy.photoeditor.shape.ShapeType
+import com.roy93group.photoediting.ui.dlg.TextEditorDialogFragment
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
