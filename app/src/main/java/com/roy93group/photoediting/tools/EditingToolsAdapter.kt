@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.roy93group.photoediting.R
-import java.util.ArrayList
 
 /**
  * @version 0.1.2
@@ -27,13 +26,19 @@ class EditingToolsAdapter(private val mOnItemSelected: OnItemSelected) :
         val mToolType: ToolType
     )
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.v_row_editing_tools, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         val item = mToolList[position]
         holder.txtTool.text = item.mToolName
         holder.imgToolIcon.setImageResource(item.mToolIcon)
@@ -57,11 +62,47 @@ class EditingToolsAdapter(private val mOnItemSelected: OnItemSelected) :
     }
 
     init {
-        mToolList.add(ToolModel("Shape", R.drawable.ic_oval, ToolType.SHAPE))
-        mToolList.add(ToolModel("Text", R.drawable.ic_text, ToolType.TEXT))
-        mToolList.add(ToolModel("Eraser", R.drawable.ic_eraser, ToolType.ERASER))
-        mToolList.add(ToolModel("Filter", R.drawable.ic_photo_filter, ToolType.FILTER))
-        mToolList.add(ToolModel("Emoji", R.drawable.ic_insert_emoticon, ToolType.EMOJI))
-        mToolList.add(ToolModel("Sticker", R.drawable.ic_sticker, ToolType.STICKER))
+        mToolList.add(
+            ToolModel(
+                mToolName = "Shape",
+                mToolIcon = R.drawable.ic_oval,
+                mToolType = ToolType.SHAPE
+            )
+        )
+        mToolList.add(
+            ToolModel(
+                mToolName = "Text",
+                mToolIcon = R.drawable.ic_text,
+                mToolType = ToolType.TEXT
+            )
+        )
+        mToolList.add(
+            ToolModel(
+                mToolName = "Eraser",
+                mToolIcon = R.drawable.ic_eraser,
+                mToolType = ToolType.ERASER
+            )
+        )
+        mToolList.add(
+            ToolModel(
+                mToolName = "Filter",
+                mToolIcon = R.drawable.ic_photo_filter,
+                mToolType = ToolType.FILTER
+            )
+        )
+        mToolList.add(
+            ToolModel(
+                mToolName = "Emoji",
+                mToolIcon = R.drawable.ic_insert_emoticon,
+                mToolType = ToolType.EMOJI
+            )
+        )
+        mToolList.add(
+            ToolModel(
+                mToolName = "Sticker",
+                mToolIcon = R.drawable.ic_sticker,
+                mToolType = ToolType.STICKER
+            )
+        )
     }
 }

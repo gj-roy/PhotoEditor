@@ -15,20 +15,23 @@ import com.roy.photoeditor.PhotoFilter
 import java.io.IOException
 import java.util.ArrayList
 
-/**
- * @version 0.1.2
- * @since 5/23/2018
- */
 class FilterViewAdapter(private val mFilterListener: FilterListener) :
     RecyclerView.Adapter<FilterViewAdapter.ViewHolder>() {
+
     private val mPairList: MutableList<Pair<String, PhotoFilter>> = ArrayList()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.v_row_filter_view, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         val filterPair = mPairList[position]
         val fromAsset = getBitmapFromAsset(holder.itemView.context, filterPair.first)
         holder.mImageFilterView.setImageBitmap(fromAsset)
@@ -44,7 +47,7 @@ class FilterViewAdapter(private val mFilterListener: FilterListener) :
         val mTxtFilterName: TextView = itemView.findViewById(R.id.txtFilterName)
 
         init {
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 mFilterListener.onFilterSelected(
                     mPairList[layoutPosition].second
                 )
@@ -52,7 +55,10 @@ class FilterViewAdapter(private val mFilterListener: FilterListener) :
         }
     }
 
-    private fun getBitmapFromAsset(context: Context, strName: String): Bitmap? {
+    private fun getBitmapFromAsset(
+        context: Context,
+        strName: String
+    ): Bitmap? {
         val assetManager = context.assets
         return try {
             val istr = assetManager.open(strName)
