@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.TextView
 import com.roy93group.photoediting.R
 import com.roy93group.photoediting.base.BaseActivity
 import com.roy93group.photoediting.ext.moreApp
 import com.roy93group.photoediting.ext.openBrowserPolicy
 import com.roy93group.photoediting.ext.rateApp
 import com.roy93group.photoediting.ext.shareApp
+import com.squareup.leakcanary.core.BuildConfig
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
@@ -21,6 +23,10 @@ class SplashActivity : BaseActivity() {
 
         makeFullScreen()
         setContentView(R.layout.a_splash)
+
+        val tvVersion = findViewById<TextView>(R.id.tvVersion)
+        //TODO set correct value
+        tvVersion.text = "Version 2023.08.05"
 
         findViewById<View>(R.id.ivShare).setOnClickListener {
             shareApp()
