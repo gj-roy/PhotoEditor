@@ -23,7 +23,7 @@
         tools:replace="android:allowBackup">
 
         <activity
-            android:name=".ui.a.EditImageActivity"
+            android:name=".ui.a.SplashActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar">
@@ -32,6 +32,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.a.EditImageActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter
                 android:label="@string/app_intent_name"
