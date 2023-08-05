@@ -13,7 +13,6 @@ import com.roy93group.photoediting.ext.moreApp
 import com.roy93group.photoediting.ext.openBrowserPolicy
 import com.roy93group.photoediting.ext.rateApp
 import com.roy93group.photoediting.ext.shareApp
-import com.squareup.leakcanary.core.BuildConfig
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {

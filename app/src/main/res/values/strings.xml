@@ -18,6 +18,10 @@
     <string name="brush">Brush</string>
     <string name="opacity">Opacity</string>
     <string name="done">Done</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate</string>
+    <string name="more">More</string>
+    <string name="policy">Policy</string>
     <string-array name="photo_editor_emoji">
 
         <!-- Smiles -->

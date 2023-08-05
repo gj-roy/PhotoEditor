@@ -48,52 +48,153 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/ivShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_share"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:fabSize="mini"
+                app:useCompatPadding="false" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/ivRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/baseline_rate_review_24"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:fabSize="mini"
+                app:useCompatPadding="false" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/ivMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/baseline_card_giftcard_24"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:fabSize="mini"
+                app:useCompatPadding="false" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/ivPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/baseline_local_police_24"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:fabSize="mini"
+                app:useCompatPadding="false" />
+        </FrameLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:paddingBottom="16dp">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/ivShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_share"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
-            app:fabSize="mini"
-            app:useCompatPadding="true" />
+        <FrameLayout
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/ivRate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/baseline_rate_review_24"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
-            app:fabSize="mini"
-            app:useCompatPadding="true" />
+            android:layout_weight="1">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/ivMore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/baseline_card_giftcard_24"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
-            app:fabSize="mini"
-            app:useCompatPadding="true" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/share"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </FrameLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/ivPolicy"
-            android:layout_width="wrap_content"
+        <FrameLayout
+
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/baseline_local_police_24"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
-            app:fabSize="mini"
-            app:useCompatPadding="true" />
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/rate"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <FrameLayout
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/more"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <FrameLayout
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/policy"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </FrameLayout>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
