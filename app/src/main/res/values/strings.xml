@@ -22,6 +22,7 @@
     <string name="rate">Rate</string>
     <string name="more">More</string>
     <string name="policy">Policy</string>
+    <string name="new_project">New project</string>
     <string-array name="photo_editor_emoji">
 
         <!-- Smiles -->

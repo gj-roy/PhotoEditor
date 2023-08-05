@@ -39,8 +39,9 @@ class SplashActivity : BaseActivity() {
         findViewById<View>(R.id.ivPolicy).setOnClickListener {
             openBrowserPolicy()
         }
-
-        goToMain()
+        findViewById<View>(R.id.btStart).setOnClickListener {
+            goToMain()
+        }
     }
 
     private fun goToMain() {
