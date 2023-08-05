@@ -5,9 +5,6 @@ import android.app.Application
 //TODO applovin
 //TODO firebase
 
-//TODO manifest ad id
-//TODO proguard
-//TODO leak canary
 //TODO share app
 //TODO more app
 //TODO rate app
@@ -16,6 +13,9 @@ import android.app.Application
 
 //done
 //ic_launcher
+//manifest ad id
+//proguard
+//leak canary
 
 class PhotoApp : Application() {
     override fun onCreate() {
