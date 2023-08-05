@@ -16,4 +16,57 @@
         android:src="@drawable/ic_launcher"
         app:tint="@color/white" />
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_share"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
+            app:fabSize="normal"
+            app:useCompatPadding="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/baseline_rate_review_24"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
+            app:fabSize="normal"
+            app:useCompatPadding="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/baseline_card_giftcard_24"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
+            app:fabSize="normal"
+            app:useCompatPadding="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/baseline_local_police_24"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
+            app:fabSize="normal"
+            app:useCompatPadding="true" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 </RelativeLayout>
