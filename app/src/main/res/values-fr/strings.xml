@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Photo Editor</string>
+<!--    <string name="app_name">Photo Editor</string>-->
     <string name="label_brush">Brosses</string>
     <string name="label_shape">Formes</string>
     <string name="label_oval">Ovale</string>

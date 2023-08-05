@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Photo Editor</string>
+<!--    <string name="app_name">Photo Editor</string>-->
     <string name="label_brush">Pędzel</string>
     <string name="label_shape">Kształt</string>
     <string name="label_oval">Elipsa</string>

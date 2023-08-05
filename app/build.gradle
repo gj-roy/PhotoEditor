@@ -10,16 +10,9 @@ android {
         applicationId "com.roy93group.photoediting"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 20230801
-        versionName "2023.08.01"
+        versionCode 20230805
+        versionName "2023.08.05"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
 
     compileOptions {
@@ -29,6 +22,71 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("keystore.jks")
+            storePassword KS_PW
+            keyAlias KS_ALIAS
+            keyPassword KS_PW
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            //used android.enableR8=true in gradle.properties
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+//            applicationIdSuffix ".release"
+        }
+        debug {
+            minifyEnabled false
+            //used android.enableR8=true in gradle.properties
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            applicationIdSuffix ".debug"
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = defaultConfig.applicationId + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"
+        }
+    }
+
+    flavorDimensions "type"
+    productFlavors {
+
+        dev {
+//            applicationId = "com.roy93group.photoediting.dev"
+            dimension "type"
+            buildConfigField("String", "FLAVOR_buildEnv", '"dev"')
+            resValue ("string", "app_name", "Smart Photo Editor DEV")
+
+//            resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
+//            resValue("string", "BANNER", "")
+//            resValue("string", "INTER", "")
+//
+//            resValue("string", "EnableAdInter", "false")
+//            resValue("string", "EnableAdBanner", "false")
+        }
+
+        production {
+//            applicationId = "com.roy93group.photoediting.prod"
+            dimension "type"
+            buildConfigField("String", "FLAVOR_buildEnv", '"prod"')
+            resValue ("string", "app_name", "Smart Photo Editor")
+
+//            resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
+//            resValue("string", "BANNER", "")
+//            resValue("string", "INTER", "")
+//
+//            resValue("string", "EnableAdInter", "true")
+//            resValue("string", "EnableAdBanner", "true")
+        }
+
     }
 }
 

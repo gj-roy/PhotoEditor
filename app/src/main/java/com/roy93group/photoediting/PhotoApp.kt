@@ -4,7 +4,6 @@ import android.app.Application
 
 //TODO applovin
 //TODO firebase
-//TODO keystore
 
 //done
 //ic_launcher
@@ -15,6 +14,7 @@ import android.app.Application
 //more app
 //rate app
 //policy
+//keystore
 
 class PhotoApp : Application() {
     override fun onCreate() {
