@@ -62,7 +62,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities=".fileprovider"
+            android:authorities="com.roy93group.photoediting.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
 
